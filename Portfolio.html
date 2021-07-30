@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Portfolio.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%A3%81%E7%95%8C%E4%B9%8B%E7%8E%8B"><strong>磁界之王</strong></h1>
+<h3 id="%E6%B2%B3%E5%8E%9F%E9%9B%BB%E5%AD%90%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1">河原電子ビジネス専門学校</h3>
+<h3 id="%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E7%A7%912%E5%B9%B4-%E9%8C%A6%E7%B9%94%E9%9A%BC%E7%8E%8B">ゲームクリエイター科2年　錦織隼王</h3>
+<h1 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h1>
+<h3 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. <a href="#overview">作品概要</a></h3>
+<h3 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. <a href="#operation">操作説明</a></h3>
+<h3 id="3-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2">3. <a href="#splitview">画面分割</a></h3>
+<h3 id="4-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">4. <a href="#bloom">ブルーム</a></h3>
+<h3 id="5-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6">5. <a href="#shadow">デプスシャドウ</a></h3>
+<h3 id="6-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC">6. <a href="#capsule">カプセルコライダー</a></h3>
+<h3 id="7-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A">7. <a href="#bullet">弾の発射先の決定</a></h3>
+<h3 id="8-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8">8. <a href="#ringgauge">リングゲージ</a></h3>
+<p><a id="overview"></a></p>
+<h1 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81"><strong>1. 作品概要</strong></h1>
+<ul>
+<li>
+<h2 id="%E7%A3%81%E7%95%8C%E4%B9%8B%E7%8E%8B%E3%81%98%E3%81%8B%E3%81%84%E3%81%AE%E3%81%8A%E3%81%86">磁界之王(じかいのおう)</h2>
+<p>三人称視点の二人対戦シューティングゲームで、<br>
+各プレイヤーにかかる磁力を考えた攻撃・行動をしながら<br>
+もう一人のプレイヤーを倒すゲームです。</p>
+  <iframe width="640" height="360" src="https://www.youtube.com/embed/7DGJrvtbmGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+<p><strong>紹介動画</strong></p>
+</li>
+<li>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3">使用ゲームエンジン</h2>
+<p>学校内製エンジンを改造して使用</p>
+</li>
+<li>
+<h2 id="%E4%BD%BF%E7%94%A8%E3%83%84%E3%83%BC%E3%83%AB">使用ツール</h2>
+<p>Visual Studio 2019<br>
+Visual Studio Code<br>
+3ds Max 2021<br>
+Adobe Photoshop Elements 2020<br>
+Git</p>
+</li>
+<li>
+<h2 id="%E4%BD%BF%E7%94%A8%E8%A8%80%E8%AA%9E">使用言語</h2>
+<p>C++<br>
+HLSL</p>
+</li>
+<li>
+<h2 id="%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83">開発環境</h2>
+<p>Windows10<br>
+DirectX12</p>
+</li>
+<li>
+<h2 id="%E5%88%B6%E4%BD%9C%E4%BA%BA%E6%95%B0">制作人数</h2>
+<p>4人</p>
+</li>
+<li>
+<h2 id="%E9%96%8B%E7%99%BA%E6%9C%9F%E9%96%93">開発期間</h2>
+<p>2021年2月～現在</p>
+</li>
+</ul>
+<p><a id="operation"></a></p>
+<h1 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E"><strong>2. 操作説明</strong></h1>
+<img src="Pictures/Control1.png" width="720">   
+<p><a id="splitview"></a></p>
+<h1 id="3-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2"><strong>3. 画面分割</strong></h1>
+<img src="Pictures/Viewport1.png" width="540">    
+<p>2人のプレイヤーがそれぞれの視点を持つため、2つの画面が必要ですが、<br>
+複数のVIEWPORTを用意することで画面分割を実装しています。<br>
+分割せず画面全体に表示したいスプライト等のため、<br>
+画面全体を覆うVIEWPORTも用意し、そちらでスプライト等の描画を行っています。<br>
+<img src="Pictures/Viewport2.png" width="540"></p>
+<p><a id="bloom"></a></p>
+<h1 id="4-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0"><strong>4. ブルーム</strong></h1>
+<p>川瀬式ブルームを実装。<br>
+通常シーンをオフスクリーンレンダリング後、輝度が高いピクセルを抽出し、<br>
+ブラーとダウンサンプリングをかけながら複数枚のテクスチャを作成し、<br>
+複数枚のテクスチャの平均を取って加算合成しています。<br>
+<img src="Pictures/Bloom1.png" width="540"><br>
+<strong>通常シーン</strong><br>
+<img src="Pictures/Bloom2.png" width="540"><br>
+<strong>輝度抽出したテクスチャ</strong><br>
+<img src="Pictures/Bloom3.png" width="540"><br>
+<strong>ブラーをかけながらダウンサンプリングしたテクスチャ</strong><br>
+<strong>(さらにダウンサンプリングしながら複数枚作成)</strong><br>
+<img src="Pictures/Bloom4.png" width="540"><br>
+<strong>加算合成後</strong></p>
+<p><a id="shadow"></a></p>
+<h1 id="5-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6"><strong>5. デプスシャドウ</strong></h1>
+<p>平行光源によるデプスシャドウを実装しています。<br>
+ライトの座標から影を落とすオブジェクトまでの深度値と<br>
+ライトの座標から影が落ちるか判定するピクセルまでの深度値を比較し、<br>
+影を落とすオブジェクトまでの深度値の方が短かった時に影が落ちます。<br>
+平行光源のため、深度値にはライトカメラからの距離ではなく、<br>
+カメラ空間のXY平面からの最短距離を計算して使用しています。<br>
+<img src="Pictures/Shadow1.png" width="540"><br>
+<strong>通常の光源での深度値の計算</strong><br>
+<img src="Pictures/Shadow2.png" width="540"><br>
+<strong>平行光源での深度値の計算</strong><br>
+<img src="Pictures/Shadow3.png" width="540"><br>
+<strong>作成されたシャドウマップ</strong></p>
+<p><a id="capsule"></a></p>
+<h1 id="6-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC"><strong>6. カプセルコライダー</strong></h1>
+<p>プレイヤーと弾との当たり判定のため、カプセルコライダーを作成し、使用しています。<br>
+移動処理によって移動する前の弾の座標と、移動した後の弾の座標を<br>
+カプセルの端点にすることで、スピードの速い弾でもプレイヤーをすり抜けることなく<br>
+判定する事ができます。<br>
+<img src="Pictures/CapsuleCollider1.png" width="540"></p>
+<p><a id="bullet"></a></p>
+<h1 id="7-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A"><strong>7. 弾の発射先の決定</strong></h1>
+<p>三人称視点のゲームのため、どうしても照準で狙う方向とプレイヤーが弾を発射する方向が<br>
+ずれてしまいます。
+そこで、カメラから照準の方向にレイを飛ばし、<br>
+最初にレイがステージのモデルに当たった座標に向かって弾を発射するようにしています。</p>
+<img src="Pictures/ShotRay1.png" width="540">  
+<p>しかし、これだけでは相手プレイヤーを狙ったとしてもその奥にあるステージを狙う事になり、<br>
+相手プレイヤーに向かって弾を飛ばす事が困難です。</p>
+<img src="Pictures/ShotRay2.png" width="540">  
+<p>そこで、各プレイヤーに常に相手のプレイヤー方向を向く平面の当たり判定を用意し、<br>
+そこに照準の方向へのレイが交差した場合も交差地点に弾を発射するようにしました。<br>
+<img src="Pictures/ShotRay3.png" width="300"><br>
+<strong>プレイヤーの向きに関係なく常に相手方向に向く</strong>
+<img src="Pictures/ShotRay4.png" width="540"></p>
+<p><a id="ringgauge"></a></p>
+<h1 id="8-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>8. リングゲージ</strong></h1>
+<p>プレイヤーの磁力の状態を表すゲージとして、8の字の形のゲージを用意しています。<br>
+<img src="Pictures/RingGauge1.png" width="540"><br>
+内積を利用して描画ピクセルの角度を計算し、指定した角度以上なら描画する<br>
+といったリングゲージを作成し、それを2つ並べて配置することで<br>
+8の字に減少するようにしました。<br>
+<img src="Pictures/RingGauge2.png" width="540"><br>
+<img src="Pictures/RingGauge3.png" width="300"></p>
+
+</body>
+</html>
