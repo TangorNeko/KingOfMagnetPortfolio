@@ -371,12 +371,17 @@ code {
 <h1 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h1>
 <h3 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81">1. <a href="#overview">作品概要</a></h3>
 <h3 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E">2. <a href="#operation">操作説明</a></h3>
-<h3 id="3-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2">3. <a href="#splitview">画面分割</a></h3>
-<h3 id="4-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">4. <a href="#bloom">ブルーム</a></h3>
-<h3 id="5-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6">5. <a href="#shadow">デプスシャドウ</a></h3>
-<h3 id="6-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC">6. <a href="#capsule">カプセルコライダー</a></h3>
-<h3 id="7-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A">7. <a href="#bullet">弾の発射先の決定</a></h3>
-<h3 id="8-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8">8. <a href="#ringgauge">リングゲージ</a></h3>
+<h3 id="3-%E6%8B%85%E5%BD%93%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">3. <a href="#responsible">担当ソースコード</a></h3>
+<h3 id="4-%E6%94%B9%E9%80%A0%E3%81%97%E3%81%9F%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89">4. <a href="#enginecode">改造したエンジンのコード</a></h3>
+<h3 id="5-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2">5. <a href="#splitview">画面分割</a></h3>
+<h3 id="6-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">6. <a href="#bloom">ブルーム</a></h3>
+<h3 id="7-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6">7. <a href="#shadow">デプスシャドウ</a></h3>
+<h3 id="8-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC">8. <a href="#capsule">カプセルコライダー</a></h3>
+<h3 id="9-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A">9. <a href="#bullet">弾の発射先の決定</a></h3>
+<h3 id="10-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8">10. <a href="#ringgauge">リングゲージ</a></h3>
+<!--
+### 11. [TODO:ゲームでこだわった部分](#commitment)
+-->
 <p><a id="overview"></a></p>
 <h1 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81"><strong>1. 作品概要</strong></h1>
 <ul>
@@ -422,8 +427,132 @@ DirectX12</p>
 <p><a id="operation"></a></p>
 <h1 id="2-%E6%93%8D%E4%BD%9C%E8%AA%AC%E6%98%8E"><strong>2. 操作説明</strong></h1>
 <img src="Pictures/Control1.png" width="720">   
+<p><a id="responsible"></a></p>
+<h1 id="3-%E6%8B%85%E5%BD%93%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89"><strong>3. 担当ソースコード</strong></h1>
+<details open>
+<summary>担当ソースコード</summary>
+<ul>
+<li>BackGround.cpp</li>
+<li>BackGround.h</li>
+<li>Bomb.cpp(一部)<br>
+移動処理以外を担当</li>
+<li>Bomb.h</li>
+<li>CascadeShadow.cpp</li>
+<li>CascadeShadow.h</li>
+<li>CDirectionLight.cpp</li>
+<li>CDirectionLight.h</li>
+<li>CEffect2D.cpp</li>
+<li>CEffect2D.h</li>
+<li>CFontRender.cpp</li>
+<li>CFontRender.h</li>
+<li>CLevel.cpp</li>
+<li>CLevel.h</li>
+<li>CLevelRender2D.cpp</li>
+<li>CLevelRender2D.h</li>
+<li>CLightManager.cpp</li>
+<li>CLightManager.h</li>
+<li>CMapChipRender.cpp</li>
+<li>CMapChipRender.h</li>
+<li>CPointLight.cpp</li>
+<li>CPointLight.h</li>
+<li>CSkinModelRender.cpp</li>
+<li>CSkinModelRender.h</li>
+<li>CSpotLight.cpp</li>
+<li>CSpotLight.h</li>
+<li>CSpriteRender.cpp</li>
+<li>CSpriteRender.h</li>
+<li>DamageDisplay.cpp</li>
+<li>DamageDisplay.h</li>
+<li>Debris.cpp</li>
+<li>Debris.h</li>
+<li>DebrisBlock.cpp</li>
+<li>DebrisBlock.h</li>
+<li>DeferredRendering.cpp</li>
+<li>DeferredRendering.h</li>
+<li>GameOption.cpp</li>
+<li>GameOption.h</li>
+<li>GameScene.cpp(一部)<br>
+ゲームシーンの初期化処理、シーンの移行関係の処理を担当</li>
+<li>GameScene.h(一部)<br>
+ゲームシーンの初期化処理、シーンの移行関係の処理を担当</li>
+<li>GravityBullet.cpp(一部)<br>
+弾の見た目以外の処理を担当</li>
+<li>GravityBullet.h(一部)<br>
+弾の見た目以外の処理を担当</li>
+<li>MobiusGauge.cpp</li>
+<li>MobiusGauge.h</li>
+<li>MyCapsuleCollider.cpp</li>
+<li>MyCapsuleCollider.h</li>
+<li>OptionValue.cpp</li>
+<li>OptionValue.h</li>
+<li>Player.cpp(一部)<br>
+移動、弾の保持、発射、必殺技、当たり判定、カメラの移動を担当</li>
+<li>Player.h(一部)<br>
+移動、弾の保持、発射、必殺技、当たり判定、カメラの移動を担当</li>
+<li>PostEffectManager.cpp</li>
+<li>PostEffectManager.h</li>
+<li>RoundCounter.cpp</li>
+<li>RoundCounter.h</li>
+<li>SkyBoard.cpp</li>
+<li>SkyBoard.h</li>
+<li>TitleScene.cpp(一部)<br>
+ゲームオプションの展開処理、背景の処理を担当</li>
+<li>TitleScsne.h(一部)<br>
+ゲームオプションの展開処理、背景の処理を担当</li>
+<li>TriangleCollider.cpp</li>
+<li>TriangleCollider.h</li>
+<li>cascadeShadow.fx</li>
+<li>deferredModel.fx</li>
+<li>DeferredSprite.fx</li>
+<li>model.fx</li>
+<li>PBR.fx</li>
+<li>postEffect.fx</li>
+<li>ringUI.fx</li>
+<li>shadow.fx</li>
+<li>shadowReceiver.fx</li>
+<li>SkyBoard.fx</li>
+</ul>
+</details>
+<p><a id="enginecode"></a></p>
+<h1 id="4-%E6%94%B9%E9%80%A0%E3%81%97%E3%81%9F%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89"><strong>4. 改造したエンジンのコード</strong></h1>
+<details open>
+<summary>改造したエンジンのコード</summary>
+<ul>
+<li>GameObjectManager.cpp<br>
+ディファードレンダリングやポストエフェクト、シャドウの描画<br>
+画面分割の描画に対応</li>
+<li>CharacterController.cpp<br>
+即座に降りられる段差の高さを変更</li>
+<li>Camera.cpp<br>
+画面分割に応じてカメラのアスペクト比をセットできるように変更</li>
+<li>GraphicsEngine.cpp<br>
+FPSの固定ができるように変更</li>
+<li>GraphicsEngine.h<br>
+画面分割するかどうかのフラグを追加</li>
+<li>IGameObject.h<br>
+レンダリングモードによって描画する関数を変えられるように変更</li>
+<li>Material.cpp<br>
+使用するカラーバッファのフォーマットを指定できるように変更<br>
+FlyWeightパターンを利用したシェーダーファイルの読み込みの高速化</li>
+<li>MeshParts.cpp、MeshParts.h<br>
+使用できる定数バッファの数を増加させた</li>
+<li>Model.cpp、Model.h<br>
+初期化の際のモデルの読み込みをFlyWeightパターンを利用し高速化<br>
+線分とモデルとの交差判定関数の追加<br>
+ビュー行列とプロジェクション行列を直接指定して描画できるように変更</li>
+<li>RenderContext.h<br>
+描画する画面を指定できるように変更</li>
+<li>Sprite.cpp<br>
+乗算カラーを指定できるように変更<br>
+使用するカラーバッファのフォーマットを指定できるように変更<br>
+ブルーム時に画面端から周囲のピクセルをサンプリングした際に反対側の端にループしないようTEXTURE_ADDRESS_MODEを変更<br>
+使用できる定数バッファの数を増加させた</li>
+<li>Texture.h<br>
+テクスチャの幅と高さを取得する関数を追加</li>
+</ul>
+</details>
 <p><a id="splitview"></a></p>
-<h1 id="3-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2"><strong>3. 画面分割</strong></h1>
+<h1 id="5-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2"><strong>5. 画面分割</strong></h1>
 <img src="Pictures/Viewport1.png" width="540">    
 <p>2人のプレイヤーがそれぞれの視点を持つため、2つの画面が必要ですが、<br>
 複数のVIEWPORTを用意することで画面分割を実装しています。<br>
@@ -431,7 +560,7 @@ DirectX12</p>
 画面全体を覆うVIEWPORTも用意し、そちらでスプライト等の描画を行っています。<br>
 <img src="Pictures/Viewport2.png" width="540"></p>
 <p><a id="bloom"></a></p>
-<h1 id="4-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0"><strong>4. ブルーム</strong></h1>
+<h1 id="6-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0"><strong>6. ブルーム</strong></h1>
 <p>川瀬式ブルームを実装。<br>
 通常シーンをオフスクリーンレンダリング後、輝度が高いピクセルを抽出し、<br>
 ブラーとダウンサンプリングをかけながら複数枚のテクスチャを作成し、<br>
@@ -446,7 +575,7 @@ DirectX12</p>
 <img src="Pictures/Bloom4.png" width="540"><br>
 <strong>加算合成後</strong></p>
 <p><a id="shadow"></a></p>
-<h1 id="5-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6"><strong>5. デプスシャドウ</strong></h1>
+<h1 id="7-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6"><strong>7. デプスシャドウ</strong></h1>
 <p>平行光源によるデプスシャドウを実装しています。<br>
 ライトの座標から影を落とすオブジェクトまでの深度値と<br>
 ライトの座標から影が落ちるか判定するピクセルまでの深度値を比較し、<br>
@@ -460,14 +589,14 @@ DirectX12</p>
 <img src="Pictures/Shadow3.png" width="540"><br>
 <strong>作成されたシャドウマップ</strong></p>
 <p><a id="capsule"></a></p>
-<h1 id="6-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC"><strong>6. カプセルコライダー</strong></h1>
+<h1 id="8-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC"><strong>8. カプセルコライダー</strong></h1>
 <p>プレイヤーと弾との当たり判定のため、カプセルコライダーを作成し、使用しています。<br>
 移動処理によって移動する前の弾の座標と、移動した後の弾の座標を<br>
 カプセルの端点にすることで、スピードの速い弾でもプレイヤーをすり抜けることなく<br>
 判定する事ができます。<br>
 <img src="Pictures/CapsuleCollider1.png" width="540"></p>
 <p><a id="bullet"></a></p>
-<h1 id="7-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A"><strong>7. 弾の発射先の決定</strong></h1>
+<h1 id="9-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A"><strong>9. 弾の発射先の決定</strong></h1>
 <p>三人称視点のゲームのため、どうしても照準で狙う方向とプレイヤーが弾を発射する方向が<br>
 ずれてしまいます。
 そこで、カメラから照準の方向にレイを飛ばし、<br>
@@ -479,10 +608,10 @@ DirectX12</p>
 <p>そこで、各プレイヤーに常に相手のプレイヤー方向を向く平面の当たり判定を用意し、<br>
 そこに照準の方向へのレイが交差した場合も交差地点に弾を発射するようにしました。<br>
 <img src="Pictures/ShotRay3.png" width="300"><br>
-<strong>プレイヤーの向きに関係なく常に相手方向に向く</strong><br>
+<strong>プレイヤーの向きに関係なく常に相手方向に向く</strong>
 <img src="Pictures/ShotRay4.png" width="540"></p>
 <p><a id="ringgauge"></a></p>
-<h1 id="8-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>8. リングゲージ</strong></h1>
+<h1 id="10-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>10. リングゲージ</strong></h1>
 <p>プレイヤーの磁力の状態を表すゲージとして、8の字の形のゲージを用意しています。<br>
 <img src="Pictures/RingGauge1.png" width="540"><br>
 内積を利用して描画ピクセルの角度を計算し、指定した角度以上なら描画する<br>
@@ -490,6 +619,9 @@ DirectX12</p>
 8の字に減少するようにしました。<br>
 <img src="Pictures/RingGauge2.png" width="540"><br>
 <img src="Pictures/RingGauge3.png" width="300"></p>
-
+<p><a id="commitment"></a></p>
+<!--
+# **11. TODO:ゲームでこだわった部分**
+-->
 </body>
 </html>

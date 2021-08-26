@@ -5,15 +5,17 @@
 # **目次**
 ### 1. [作品概要](#overview)
 ### 2. [操作説明](#operation)
-### 3. [TODO:担当ソースコード](#responsible)
-### 4. [TODO:改造したエンジンのコード](#enginecode)
+### 3. [担当ソースコード](#responsible)
+### 4. [改造したエンジンのコード](#enginecode)
 ### 5. [画面分割](#splitview)
 ### 6. [ブルーム](#bloom)
 ### 7. [デプスシャドウ](#shadow)
 ### 8. [カプセルコライダー](#capsule)
 ### 9. [弾の発射先の決定](#bullet)
 ### 10. [リングゲージ](#ringgauge)
-
+<!--
+### 11. [TODO:ゲームでこだわった部分](#commitment)
+-->
 <a id="overview"></a>
 
 # **1. 作品概要**
@@ -50,18 +52,133 @@
 
 <a id="responsible"></a>
 
-# **3. TODO:担当ソースコード**
-○○.cpp  
-□□.cpp  
-△△.cpp(一部)  
+# **3. 担当ソースコード**  
+
+<details open>
+<summary>担当ソースコード</summary>
+
+* BackGround.cpp  
+* BackGround.h  
+* Bomb.cpp(一部)  
+移動処理以外を担当  
+* Bomb.h  
+* CascadeShadow.cpp
+* CascadeShadow.h
+* CDirectionLight.cpp  
+* CDirectionLight.h  
+* CEffect2D.cpp  
+* CEffect2D.h  
+* CFontRender.cpp  
+* CFontRender.h  
+* CLevel.cpp  
+* CLevel.h  
+* CLevelRender2D.cpp  
+* CLevelRender2D.h  
+* CLightManager.cpp  
+* CLightManager.h  
+* CMapChipRender.cpp  
+* CMapChipRender.h  
+* CPointLight.cpp  
+* CPointLight.h  
+* CSkinModelRender.cpp  
+* CSkinModelRender.h  
+* CSpotLight.cpp  
+* CSpotLight.h  
+* CSpriteRender.cpp  
+* CSpriteRender.h  
+* DamageDisplay.cpp  
+* DamageDisplay.h  
+* Debris.cpp  
+* Debris.h  
+* DebrisBlock.cpp  
+* DebrisBlock.h  
+* DeferredRendering.cpp  
+* DeferredRendering.h  
+* GameOption.cpp  
+* GameOption.h  
+* GameScene.cpp(一部)  
+ゲームシーンの初期化処理、シーンの移行関係の処理を担当  
+* GameScene.h(一部)  
+ゲームシーンの初期化処理、シーンの移行関係の処理を担当  
+* GravityBullet.cpp(一部)  
+弾の見た目以外の処理を担当  
+* GravityBullet.h(一部)  
+弾の見た目以外の処理を担当  
+* MobiusGauge.cpp  
+* MobiusGauge.h  
+* MyCapsuleCollider.cpp  
+* MyCapsuleCollider.h  
+* OptionValue.cpp  
+* OptionValue.h  
+* Player.cpp(一部)  
+移動、弾の保持、発射、必殺技、当たり判定、カメラの移動を担当  
+* Player.h(一部)  
+移動、弾の保持、発射、必殺技、当たり判定、カメラの移動を担当  
+* PostEffectManager.cpp  
+* PostEffectManager.h  
+* RoundCounter.cpp  
+* RoundCounter.h  
+* SkyBoard.cpp  
+* SkyBoard.h  
+* TitleScene.cpp(一部)  
+ゲームオプションの展開処理、背景の処理を担当  
+* TitleScsne.h(一部)  
+ゲームオプションの展開処理、背景の処理を担当  
+* TriangleCollider.cpp  
+* TriangleCollider.h  
+* cascadeShadow.fx  
+* deferredModel.fx
+* DeferredSprite.fx
+* model.fx
+* PBR.fx
+* postEffect.fx
+* ringUI.fx
+* shadow.fx
+* shadowReceiver.fx
+* SkyBoard.fx
+
+</details>
 
 <a id="enginecode"></a>
 
-# **4. TODO:改造したエンジンのコード**
-* GameObjectManagerクラス  
-ポストエフェクトやシャドウの描画  
-画面分割の描画に対応
-* △△△△～～
+# **4. 改造したエンジンのコード**
+<details open>
+<summary>改造したエンジンのコード</summary>
+
+* GameObjectManager.cpp  
+ディファードレンダリングやポストエフェクト、シャドウの描画  
+画面分割の描画に対応  
+* CharacterController.cpp  
+即座に降りられる段差の高さを変更  
+* Camera.cpp  
+画面分割に応じてカメラのアスペクト比をセットできるように変更  
+* GraphicsEngine.cpp  
+FPSの固定ができるように変更  
+* GraphicsEngine.h  
+画面分割するかどうかのフラグを追加  
+* IGameObject.h  
+レンダリングモードによって描画する関数を変えられるように変更
+* Material.cpp  
+使用するカラーバッファのフォーマットを指定できるように変更  
+FlyWeightパターンを利用したシェーダーファイルの読み込みの高速化  
+* MeshParts.cpp、MeshParts.h  
+使用できる定数バッファの数を増加させた  
+* Model.cpp、Model.h  
+初期化の際のモデルの読み込みをFlyWeightパターンを利用し高速化  
+線分とモデルとの交差判定関数の追加  
+ビュー行列とプロジェクション行列を直接指定して描画できるように変更  
+* RenderContext.h  
+描画する画面を指定できるように変更  
+* Sprite.cpp  
+乗算カラーを指定できるように変更  
+使用するカラーバッファのフォーマットを指定できるように変更  
+ブルーム時に画面端から周囲のピクセルをサンプリングした際に反対側の端にループしないようTEXTURE_ADDRESS_MODEを変更  
+使用できる定数バッファの数を増加させた  
+* Texture.h  
+テクスチャの幅と高さを取得する関数を追加
+
+
+</details>
 
 <a id="splitview"></a>
 
@@ -147,3 +264,9 @@
 8の字に減少するようにしました。  
 <img src="Pictures/RingGauge2.png" width="540">  
 <img src="Pictures/RingGauge3.png" width="300">  
+
+<a id="commitment"></a>
+
+<!--
+# **11. TODO:ゲームでこだわった部分**
+-->
