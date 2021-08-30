@@ -375,12 +375,13 @@ code {
 <h3 id="4-%E6%94%B9%E9%80%A0%E3%81%97%E3%81%9F%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%B3%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89">4. <a href="#enginecode">改造したエンジンのコード</a></h3>
 <h3 id="5-%E7%94%BB%E9%9D%A2%E5%88%86%E5%89%B2">5. <a href="#splitview">画面分割</a></h3>
 <h3 id="6-%E3%83%96%E3%83%AB%E3%83%BC%E3%83%A0">6. <a href="#bloom">ブルーム</a></h3>
-<h3 id="7-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6">7. <a href="#shadow">デプスシャドウ</a></h3>
-<h3 id="8-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC">8. <a href="#capsule">カプセルコライダー</a></h3>
-<h3 id="9-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A">9. <a href="#bullet">弾の発射先の決定</a></h3>
-<h3 id="10-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8">10. <a href="#ringgauge">リングゲージ</a></h3>
+<h3 id="7-%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6">7. <a href="#shadow">カスケードシャドウ</a></h3>
+<h3 id="8-%E3%83%87%E3%82%A3%E3%83%95%E3%82%A1%E3%83%BC%E3%83%89%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0">8. <a href="#deferred">ディファードレンダリング</a></h3>
+<h3 id="9-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC">9. <a href="#capsule">カプセルコライダー</a></h3>
+<h3 id="10-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A">10. <a href="#bullet">弾の発射先の決定</a></h3>
+<h3 id="11-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8">11. <a href="#ringgauge">リングゲージ</a></h3>
 <!--
-### 11. [TODO:ゲームでこだわった部分](#commitment)
+### 12. [TODO:ゲームでこだわった部分](#commitment)
 -->
 <p><a id="overview"></a></p>
 <h1 id="1-%E4%BD%9C%E5%93%81%E6%A6%82%E8%A6%81"><strong>1. 作品概要</strong></h1>
@@ -421,7 +422,7 @@ DirectX12</p>
 </li>
 <li>
 <h2 id="%E9%96%8B%E7%99%BA%E6%9C%9F%E9%96%93">開発期間</h2>
-<p>2021年2月～現在</p>
+<p>2021年2月～2021年8月</p>
 </li>
 </ul>
 <p><a id="operation"></a></p>
@@ -575,28 +576,41 @@ FlyWeightパターンを利用したシェーダーファイルの読み込み�
 <img src="Pictures/Bloom4.png" width="540"><br>
 <strong>加算合成後</strong></p>
 <p><a id="shadow"></a></p>
-<h1 id="7-%E3%83%87%E3%83%97%E3%82%B9%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6"><strong>7. デプスシャドウ</strong></h1>
-<p>平行光源によるデプスシャドウを実装しています。<br>
-ライトの座標から影を落とすオブジェクトまでの深度値と<br>
-ライトの座標から影が落ちるか判定するピクセルまでの深度値を比較し、<br>
-影を落とすオブジェクトまでの深度値の方が短かった時に影が落ちます。<br>
-平行光源のため、深度値にはライトカメラからの距離ではなく、<br>
-カメラ空間のXY平面からの最短距離を計算して使用しています。<br>
+<h1 id="7-%E3%82%AB%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%89%E3%82%B7%E3%83%A3%E3%83%89%E3%82%A6"><strong>7. カスケードシャドウ</strong></h1>
+<p>影の描画には、カメラからの距離に応じて解像度の違う複数のシャドウマップを使い分ける<br>
+カスケードシャドウを使用しています。<br>
+そのため、近くの影は高品質に、遠くの影は低品質に(遠いので影響が殆どない)なっています。<br>
+画面が2つあるゲームなので、2(左画面、右画面) ✕ 3(近距離、中距離、遠距離)<br>
+の6つのシャドウマップに描画しています。<br>
 <img src="Pictures/Shadow1.png" width="540"><br>
-<strong>通常の光源での深度値の計算</strong><br>
+<strong>作成されたシャドウマップ</strong><br>
 <img src="Pictures/Shadow2.png" width="540"><br>
-<strong>平行光源での深度値の計算</strong><br>
-<img src="Pictures/Shadow3.png" width="540"><br>
-<strong>作成されたシャドウマップ</strong></p>
+<strong>近距離と中距離用のシャドウマップで描かれた影</strong></p>
+<p><a id="deferred"></a></p>
+<h1 id="8-%E3%83%87%E3%82%A3%E3%83%95%E3%82%A1%E3%83%BC%E3%83%89%E3%83%AC%E3%83%B3%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0"><strong>8. ディファードレンダリング</strong></h1>
+<p>ディファードレンダリングを行い、ライティングの計算が呼ばれる回数を減らしています。<br>
+DirectXのマルチレンダーターゲット描画を利用し、アルベド、法線、ワールド座標のG-Bufferを出力しています。
+その後、G-Bufferを使用してライティングを行う事で、<br>
+画面に描画されるピクセルのみにライティングの計算を行います。<br>
+また、今回はUVスクロールする空のみ特殊なライティングを行うので<br>
+ディファードレンダリングの後、空のみフォワードレンダリングで描画しています。<br>
+<img src="Pictures/Deferred1.png" width="540"><br>
+<strong>アルベドG-Buffer</strong><br>
+<img src="Pictures/Deferred2.png" width="540"><br>
+<strong>法線G-Buffer</strong><br>
+<img src="Pictures/Deferred3.png" width="540"><br>
+<strong>ワールド座標G-Buffer</strong><br>
+<img src="Pictures/Deferred4.png" width="540"><br>
+<strong>ディファードライティング+空のみフォワードレンダリング</strong></p>
 <p><a id="capsule"></a></p>
-<h1 id="8-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC"><strong>8. カプセルコライダー</strong></h1>
+<h1 id="9-%E3%82%AB%E3%83%97%E3%82%BB%E3%83%AB%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC"><strong>9. カプセルコライダー</strong></h1>
 <p>プレイヤーと弾との当たり判定のため、カプセルコライダーを作成し、使用しています。<br>
 移動処理によって移動する前の弾の座標と、移動した後の弾の座標を<br>
 カプセルの端点にすることで、スピードの速い弾でもプレイヤーをすり抜けることなく<br>
 判定する事ができます。<br>
 <img src="Pictures/CapsuleCollider1.png" width="540"></p>
 <p><a id="bullet"></a></p>
-<h1 id="9-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A"><strong>9. 弾の発射先の決定</strong></h1>
+<h1 id="10-%E5%BC%BE%E3%81%AE%E7%99%BA%E5%B0%84%E5%85%88%E3%81%AE%E6%B1%BA%E5%AE%9A"><strong>10. 弾の発射先の決定</strong></h1>
 <p>三人称視点のゲームのため、どうしても照準で狙う方向とプレイヤーが弾を発射する方向が<br>
 ずれてしまいます。
 そこで、カメラから照準の方向にレイを飛ばし、<br>
@@ -611,7 +625,7 @@ FlyWeightパターンを利用したシェーダーファイルの読み込み�
 <strong>プレイヤーの向きに関係なく常に相手方向に向く</strong>
 <img src="Pictures/ShotRay4.png" width="540"></p>
 <p><a id="ringgauge"></a></p>
-<h1 id="10-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>10. リングゲージ</strong></h1>
+<h1 id="11-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>11. リングゲージ</strong></h1>
 <p>プレイヤーの磁力の状態を表すゲージとして、8の字の形のゲージを用意しています。<br>
 <img src="Pictures/RingGauge1.png" width="540"><br>
 内積を利用して描画ピクセルの角度を計算し、指定した角度以上なら描画する<br>
@@ -621,7 +635,7 @@ FlyWeightパターンを利用したシェーダーファイルの読み込み�
 <img src="Pictures/RingGauge3.png" width="300"></p>
 <p><a id="commitment"></a></p>
 <!--
-# **11. TODO:ゲームでこだわった部分**
+# **12. TODO:ゲームでこだわった部分**
 -->
 </body>
 </html>
