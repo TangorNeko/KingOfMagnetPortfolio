@@ -14,9 +14,8 @@
 ### 9. [カプセルコライダー](#capsule)
 ### 10. [弾の発射先の決定](#bullet)
 ### 11. [リングゲージ](#ringgauge)
-<!--
-### 12. [TODO:ゲームでこだわった部分](#commitment)
--->
+### 12. [ゲームでこだわった部分](#commitment)
+
 <a id="overview"></a>
 
 # **1. 作品概要**
@@ -24,7 +23,7 @@
     三人称視点の二人対戦シューティングゲームで、  
     各プレイヤーにかかる磁力を考えた攻撃・行動をしながら  
     もう一人のプレイヤーを倒すゲームです。
-    <iframe width="640" height="360" src="https://www.youtube.com/embed/7DGJrvtbmGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+    <iframe width="640" height="365" src="https://www.youtube.com/embed/kX87_XVBVlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
     **紹介動画**
 * ## 使用ゲームエンジン
@@ -283,6 +282,22 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 
 <a id="commitment"></a>
 
-<!--
-# **12. TODO:ゲームでこだわった部分**
--->
+# **12. ゲームでこだわった部分**
+## 1.決着時のカメラ
+
+バトルに決着がついた際、2画面分割の対戦画面から演出用の1画面に切り替わり、  
+勝者を映す演出を流しています。  
+<img src="Pictures/FinalHit1.png" width="540">  
+**倒れる敗者を映し**  
+<img src="Pictures/FinalHit2.png" width="540">  
+**敗者からゆっくりと勝者にカメラが移動する**  
+<img src="Pictures/FinalHit3.png" width="540">  
+**最後は勝者プレイヤーを映す**  
+
+
+## 2.磁力の状態によるプレイヤーの行動のメリハリ
+磁界之王では、引力状態では通常の攻撃は一切できず、バーストでも敵の弾を引き寄せてしまう完全なデメリット状態です。  
+しかし、攻撃に必要な弾は引力状態でしか集める事ができません。  
+斥力状態では通常の攻撃の他、バーストによって相手の攻撃を弾く事ができます。  
+このように、磁力の状態によってはっきりとした有利、不利を作る事で、  
+プレイヤーが今できる行動を明確にし、次に何をするか選択しやすいようにしています。
