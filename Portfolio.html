@@ -389,7 +389,7 @@ code {
 <p>三人称視点の二人対戦シューティングゲームで、<br>
 各プレイヤーにかかる磁力を考えた攻撃・行動をしながら<br>
 もう一人のプレイヤーを倒すゲームです。</p>
-  <iframe width="640" height="365" src="https://www.youtube.com/embed/kX87_XVBVlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+  <iframe width="640" height="365" src="https://www.youtube.com/embed/kX87_XVBVlo?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 <p><strong>紹介動画</strong></p>
 </li>
 <li>
@@ -614,14 +614,17 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 そこで、カメラから照準の方向にレイを飛ばし、<br>
 最初にレイがステージのモデルに当たった座標に向かって弾を発射するようにしています。</p>
 <img src="Pictures/ShotRay1.png" width="540">  
+<br>
+<iframe width="640" height="365" src="https://www.youtube.com/embed/YZwdagKNac4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 <p>しかし、これだけでは相手プレイヤーを狙ったとしてもその奥にあるステージを狙う事になり、<br>
 相手プレイヤーに向かって弾を飛ばす事が困難です。</p>
 <img src="Pictures/ShotRay2.png" width="540">  
 <p>そこで、各プレイヤーに常に相手のプレイヤー方向を向く平面の当たり判定を用意し、<br>
 そこに照準の方向へのレイが交差した場合も交差地点に弾を発射するようにしました。<br>
 <img src="Pictures/ShotRay3.png" width="300"><br>
-<strong>プレイヤーの向きに関係なく常に相手方向に向く</strong>
+<strong>プレイヤーの向きに関係なく常に相手方向に向く</strong><br>
 <img src="Pictures/ShotRay4.png" width="540"></p>
+<iframe width="640" height="365" src="https://www.youtube.com/embed/7a9Y2U70udw?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 <p><a id="ringgauge"></a></p>
 <h1 id="11-%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B2%E3%83%BC%E3%82%B8"><strong>11. リングゲージ</strong></h1>
 <p>プレイヤーの磁力の状態を表すゲージとして、8の字の形のゲージを用意しています。<br>
@@ -642,6 +645,7 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 <strong>敗者からゆっくりと勝者にカメラが移動する</strong><br>
 <img src="Pictures/FinalHit3.png" width="540"><br>
 <strong>最後は勝者プレイヤーを映す</strong></p>
+<iframe width="640" height="365" src="https://www.youtube.com/embed/tR9JUFrff-Q?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 <h2 id="2%E7%A3%81%E5%8A%9B%E3%81%AE%E7%8A%B6%E6%85%8B%E3%81%AB%E3%82%88%E3%82%8B%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC%E3%81%AE%E8%A1%8C%E5%8B%95%E3%81%AE%E3%83%A1%E3%83%AA%E3%83%8F%E3%83%AA">2.磁力の状態によるプレイヤーの行動のメリハリ</h2>
 <p>磁界之王では、引力状態では通常の攻撃は一切できず、バーストでも敵の弾を引き寄せてしまう完全なデメリット状態です。<br>
 しかし、攻撃に必要な弾は引力状態でしか集める事ができません。<br>

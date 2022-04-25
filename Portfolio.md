@@ -23,7 +23,7 @@
     三人称視点の二人対戦シューティングゲームで、  
     各プレイヤーにかかる磁力を考えた攻撃・行動をしながら  
     もう一人のプレイヤーを倒すゲームです。
-    <iframe width="640" height="365" src="https://www.youtube.com/embed/kX87_XVBVlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+    <iframe width="640" height="365" src="https://www.youtube.com/embed/kX87_XVBVlo?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
     **紹介動画**
 * ## 使用ゲームエンジン
@@ -254,9 +254,13 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 三人称視点のゲームのため、どうしても照準で狙う方向とプレイヤーが弾を発射する方向が  
 ずれてしまいます。
 そこで、カメラから照準の方向にレイを飛ばし、  
-最初にレイがステージのモデルに当たった座標に向かって弾を発射するようにしています。
+最初にレイがステージのモデルに当たった座標に向かって弾を発射するようにしています。  
 
 <img src="Pictures/ShotRay1.png" width="540">  
+
+<br>
+
+<iframe width="640" height="365" src="https://www.youtube.com/embed/YZwdagKNac4?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
 しかし、これだけでは相手プレイヤーを狙ったとしてもその奥にあるステージを狙う事になり、  
 相手プレイヤーに向かって弾を飛ばす事が困難です。
@@ -266,10 +270,12 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 そこで、各プレイヤーに常に相手のプレイヤー方向を向く平面の当たり判定を用意し、  
 そこに照準の方向へのレイが交差した場合も交差地点に弾を発射するようにしました。  
 <img src="Pictures/ShotRay3.png" width="300">  
-**プレイヤーの向きに関係なく常に相手方向に向く**
+**プレイヤーの向きに関係なく常に相手方向に向く**  
 <img src="Pictures/ShotRay4.png" width="540">  
 
-<a id="ringgauge"></a>
+<iframe width="640" height="365" src="https://www.youtube.com/embed/7a9Y2U70udw?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+
+<a id="ringgauge"></a>  
 
 # **11. リングゲージ**
 プレイヤーの磁力の状態を表すゲージとして、8の字の形のゲージを用意しています。  
@@ -293,6 +299,8 @@ DirectXのマルチレンダーターゲット描画を利用し、アルベド�
 **敗者からゆっくりと勝者にカメラが移動する**  
 <img src="Pictures/FinalHit3.png" width="540">  
 **最後は勝者プレイヤーを映す**  
+
+<iframe width="640" height="365" src="https://www.youtube.com/embed/tR9JUFrff-Q?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
 
 ## 2.磁力の状態によるプレイヤーの行動のメリハリ
